@@ -1,0 +1,40 @@
+﻿@model ExamGradesApplication.Models.StudentVM
+@{
+    ViewBag.Title = "AddGrades";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h4><b>Not Ekleme</b></h4>
+            <hr />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            @using (Html.BeginForm())
+            {
+                <div class="form-group">
+                    @Html.DisplayFor(modelItem => Model.StudentName, new { @class = "form-control", placeholder = "Öğrenci Adı", required = "required" })
+                </div>
+                <div class="form-group">
+                    @Html.DisplayFor(modelItem => Model.StudentLastName, new { @class = "form-control", placeholder = "Öğrenci Soyadı", required = "required" })
+                </div>
+                <div class="form-group">
+                    @Html.TextBoxFor(modelItem => Model.StudentIdentificationNumber, new { @class = "form-control", placeholder = "Öğrenci Kimlik No", required = "required" })
+                </div>
+                <div class="form-group">
+                    @Html.TextBoxFor(modelItem => Model.StudentPassword, new { @class = "form-control", placeholder = "Öğrenci Şifresi", required = "required" })
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <input type="submit" value="Kaydet" class="btn btn-danger btn-block" />
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+

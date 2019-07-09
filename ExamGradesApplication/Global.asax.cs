@@ -1,6 +1,7 @@
 ﻿using Autofac;
 using Autofac.Integration.Mvc;
 using ExamGradesApplication.Repository;
+using ExamGradesApplication.Worker;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,6 +20,9 @@ namespace ExamGradesApplication
 
             builder.RegisterControllers(Assembly.GetExecutingAssembly());
             builder.RegisterType<StudentRepo>().As<IStudent>();
+            builder.RegisterType<LoginWorker>().As<ILoginWorker>();
+            builder.RegisterType<TeacherRepo>().As<ITeacher>();
+
 
             IContainer container = builder.Build();
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));

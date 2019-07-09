@@ -23,7 +23,7 @@ namespace ExamGradesApplication.DB
         public int StudentID { get; set; }
         public string StudentName { get; set; }
         public string StudentLastName { get; set; }
-        public Nullable<int> StudentIdentificationNumber { get; set; }
+        public string StudentIdentificationNumber { get; set; }
         public Nullable<int> StudentPassword { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

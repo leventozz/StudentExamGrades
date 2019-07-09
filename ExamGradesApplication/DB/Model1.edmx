@@ -33,6 +33,8 @@
     <Property Name="LessonID" Type="int" Nullable="false" />
     <Property Name="ExamGrade1" Type="int" Nullable="true" />
     <Property Name="ExamGrades" Type="int" Nullable="true" />
+    <Property Name="ExamGrades1" Type="int" Nullable="true" />
+    <Property Name="ExamGrades2" Type="int" Nullable="true" />
   </EntityType>
   <EntityType Name="Lessons">
     <Key>
@@ -48,7 +50,7 @@
     <Property Name="StudentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="StudentName" Type="nvarchar" Nullable="true" MaxLength="50" />
     <Property Name="StudentLastName" Type="nvarchar" Nullable="true" MaxLength="50" />
-    <Property Name="StudentIdentificationNumber" Type="int" Nullable="true" />
+    <Property Name="StudentIdentificationNumber" Type="nvarchar(max)" Nullable="true" />
     <Property Name="StudentPassword" Type="int" Nullable="true" />
   </EntityType>
   <EntityType Name="sysdiagrams">
@@ -123,6 +125,8 @@
           <NavigationProperty Name="Lesson" Relationship="Self.FK_ExamGrades_Lessons1" FromRole="ExamGrades" ToRole="Lessons" />
           <NavigationProperty Name="Student" Relationship="Self.FK_ExamGrades_Students1" FromRole="ExamGrades" ToRole="Students" />
           <Property Name="ExamGrades" Type="Int32" />
+          <Property Name="ExamGrades1" Type="Int32" />
+          <Property Name="ExamGrades2" Type="Int32" />
         </EntityType>
         <EntityType Name="Lesson">
           <Key>
@@ -140,7 +144,7 @@
           <Property Name="StudentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="StudentName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="StudentLastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="StudentIdentificationNumber" Type="Int32" />
+          <Property Name="StudentIdentificationNumber" Type="String" />
           <Property Name="StudentPassword" Type="Int32" />
           <NavigationProperty Name="ExamGrades" Relationship="Self.FK_ExamGrades_Students1" FromRole="Students" ToRole="ExamGrades" />
         </EntityType>
@@ -234,6 +238,8 @@
           <ScalarProperty Name="LessonID" ColumnName="LessonID" />
           <ScalarProperty Name="ExamGrade1" ColumnName="ExamGrade1" />
           <ScalarProperty Name="ExamGrades" ColumnName="ExamGrades" />
+          <ScalarProperty Name="ExamGrades1" ColumnName="ExamGrades1" />
+          <ScalarProperty Name="ExamGrades2" ColumnName="ExamGrades2" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

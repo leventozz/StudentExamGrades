@@ -5,12 +5,11 @@ using System.Web;
 
 namespace ExamGradesApplication.Models
 {
-    public class Student
+    public class StudentVM
     {
-        public int StudentID { get; set; }
         public string StudentName { get; set; }
         public string StudentLastName { get; set; }
-        public int StudentIdentificationNumber { get; set; }
+        public string StudentIdentificationNumber { get; set; }
         public int StudentPassword { get; set; }
     }
 }

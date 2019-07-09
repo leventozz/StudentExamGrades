@@ -18,6 +18,8 @@ namespace ExamGradesApplication.DB
         public int LessonID { get; set; }
         public Nullable<int> ExamGrade1 { get; set; }
         public Nullable<int> ExamGrades { get; set; }
+        public Nullable<int> ExamGrades1 { get; set; }
+        public Nullable<int> ExamGrades2 { get; set; }
     
         public virtual Lesson Lesson { get; set; }
         public virtual Student Student { get; set; }

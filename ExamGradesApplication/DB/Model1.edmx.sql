@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 07/09/2019 10:12:35
+-- Date Created: 07/09/2019 17:31:37
 -- Generated from EDMX file: D:\Visual Studio Projeler\ExamGradesApplication\ExamGradesApplication\DB\Model1.edmx
 -- --------------------------------------------------
 
@@ -56,7 +56,9 @@ CREATE TABLE [dbo].[ExamGrades] (
     [StudentID] int  NOT NULL,
     [LessonID] int  NOT NULL,
     [ExamGrade1] int  NULL,
-    [ExamGrades] int  NULL
+    [ExamGrades] int  NULL,
+    [ExamGrades1] int  NULL,
+    [ExamGrades2] int  NULL
 );
 GO
 
@@ -72,7 +74,7 @@ CREATE TABLE [dbo].[Students] (
     [StudentID] int IDENTITY(1,1) NOT NULL,
     [StudentName] nvarchar(50)  NULL,
     [StudentLastName] nvarchar(50)  NULL,
-    [StudentIdentificationNumber] int  NULL,
+    [StudentIdentificationNumber] nvarchar(max)  NULL,
     [StudentPassword] int  NULL
 );
 GO
