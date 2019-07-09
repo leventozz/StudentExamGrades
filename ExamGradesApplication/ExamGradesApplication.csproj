@@ -227,7 +227,9 @@
     <Compile Include="Repository\StudentRepo.cs" />
     <Compile Include="Repository\TeacherRepo.cs" />
     <Compile Include="Worker\ILoginWorker.cs" />
+    <Compile Include="Worker\IStudentListWorker.cs" />
     <Compile Include="Worker\LoginWorker.cs" />
+    <Compile Include="Worker\StudentListWorker.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />

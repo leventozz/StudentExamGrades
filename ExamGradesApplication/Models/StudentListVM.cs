@@ -10,5 +10,6 @@ namespace ExamGradesApplication.Models
         public string StudentName { get; set; }
         public string StudentLastName { get; set; }
         public int StudentID { get; set; }
+        public string IdentificationNumber { get; set; }
     }
 }

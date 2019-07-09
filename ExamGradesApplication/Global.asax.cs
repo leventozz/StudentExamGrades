@@ -22,6 +22,7 @@ namespace ExamGradesApplication
             builder.RegisterType<StudentRepo>().As<IStudent>();
             builder.RegisterType<LoginWorker>().As<ILoginWorker>();
             builder.RegisterType<TeacherRepo>().As<ITeacher>();
+            builder.RegisterType<StudentListWorker>().As<IStudentListWorker>();
 
 
             IContainer container = builder.Build();

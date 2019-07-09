@@ -1,6 +1,7 @@
 ﻿
 using ExamGradesApplication.Models;
 using ExamGradesApplication.Repository;
+using ExamGradesApplication.Worker;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,14 +13,16 @@ namespace ExamGradesApplication.Controllers
     public class TeacherController : Controller
     {
         IStudent _studentService;
-        public TeacherController(IStudent studentService)
+        IStudentListWorker _workerService;
+        public TeacherController(IStudent studentService, IStudentListWorker workerService)
         {
             _studentService = studentService;
+            _workerService = workerService;
         }
         // GET: Student
         public ActionResult Index()
         {
-            return View(_studentService.GetStudents());
+            return View(_workerService.GetStudentList());
         }
         public ActionResult CreateStudent()
         {
