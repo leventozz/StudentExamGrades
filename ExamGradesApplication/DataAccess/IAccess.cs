@@ -1,17 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Web;
 
-namespace DataAccess
+namespace ExamGradesApplication.DataAccess
 {
     public interface IAccess<T>
     {
-        void Create(T arg);
-        int Delete(int argID);
-        int Update(T arg);
-        T Select(int argID);
         IEnumerable<T> GetAll();
     }
 }

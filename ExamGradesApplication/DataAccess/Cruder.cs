@@ -1,6 +1,4 @@
-﻿using DataAccess;
-using ExamGradesApplication.App_Start;
-using ExamGradesApplication.DB;
+﻿using ExamGradesApplication.App_Start;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,9 +6,9 @@ using System.Web;
 
 namespace ExamGradesApplication.DataAccess
 {
-    public class StudentAccess : IAccess<Student>
+    public class Cruder
     {
-        public IEnumerable<Student> GetAll()
+        IEnumerable<object> GetAll()
         {
             return Context.Connection.Students.ToList();
         }
