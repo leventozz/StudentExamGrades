@@ -1,7 +1,36 @@
-﻿
+﻿@model IEnumerable<ExamGradesApplication.DB.Student>
 @{
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Adı</th>
+            <th scope="col">Soyadı</th>
+            <th scope="col">Handle</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+
+            @foreach (var item in Model)
+            {
+                <th scope="row">1</th>
+                <td>@item.StudentName</td>
+                <td>@item.StudentLastName</td>
+            }
+        </tr>
+        <tr>
+            
+            @*@foreach (var item in Model)
+            {
+                
+            }*@
+
+        </tr>
+        
+    </tbody>
+</table>
 

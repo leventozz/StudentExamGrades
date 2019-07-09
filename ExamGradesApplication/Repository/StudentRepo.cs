@@ -16,7 +16,6 @@ namespace ExamGradesApplication.Repository
                 throw new ArgumentNullException("Nesne Hatalı");
             }
             Context.Connection.Students.Add(arg);
-            Context.Connection.SaveChanges();
             return arg;
         }
 

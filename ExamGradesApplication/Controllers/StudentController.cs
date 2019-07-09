@@ -1,5 +1,5 @@
-﻿using DataAccess;
-using ExamGradesApplication.DataAccess;
+﻿
+using ExamGradesApplication.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,15 +10,15 @@ namespace ExamGradesApplication.Controllers
 {
     public class StudentController : Controller
     {
-        private IAccess<StudentAccess> access;
-        public StudentController(IAccess<StudentAccess> access)
+        IStudent _studentService;
+        public StudentController(IStudent studentService)
         {
-            this.access = access;
+            _studentService = studentService;
         }
         // GET: Student
         public ActionResult Index()
         {
-            return View(this.access.GetAll());
+            return View(_studentService.GetStudents());
         }
     }
 }

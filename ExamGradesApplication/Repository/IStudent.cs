@@ -1,4 +1,5 @@
-﻿using ExamGradesApplication.DB;
+﻿
+using ExamGradesApplication.DB;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ExamGradesApplication.Repository
 {
-    interface IStudent
+    public interface IStudent
     {
         IEnumerable<Student> GetStudents();
         Student AddStudent(Student arg);
