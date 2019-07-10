@@ -62,6 +62,7 @@ namespace ExamGradesApplication.Worker
                 {
                     Name = t.TeacherName,
                     LastName = t.TeacherLastName,
+                    IdentificationNumber=t.TeacherIdentificationNumber,
                     ID = t.TeacherID,
                     Job = "Öğretmen"
                 };
@@ -73,6 +74,7 @@ namespace ExamGradesApplication.Worker
                 {
                     Name = s.StudentName,
                     LastName = s.StudentLastName,
+                    IdentificationNumber=s.StudentIdentificationNumber,
                     ID = s.StudentID,
                     Job = "Öğrenci"
                 };

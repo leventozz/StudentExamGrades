@@ -11,6 +11,7 @@ namespace ExamGradesApplication.Models
         public string Name { get; set; }
         public string LastName { get; set; }
         public Nullable<int> LessonID { get; set; }
+        public string IdentificationNumber { get; set; }
         public string Job { get; set; }
     }
 }

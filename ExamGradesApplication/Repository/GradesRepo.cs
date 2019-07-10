@@ -10,7 +10,7 @@ namespace ExamGradesApplication.Repository
 {
     public class GradesRepo : IGrades
     {
-        public IEnumerable<ExamGradeVM> GetGradeListByID(int id)
+        public IEnumerable<ExamGrade> GetGradeListByID(int id)
         {
             try
             {
@@ -24,11 +24,11 @@ namespace ExamGradesApplication.Repository
             }
         }
 
-        public string SaveGrades(ExamGradeVM arg)
+        public string SaveGrades(ExamGrade arg)
         {
             try
             {
-                ExamGradeVM eg = Context.Connection.ExamGrades.FirstOrDefault(x => x.StudentID == arg.StudentID);
+                ExamGrade eg = Context.Connection.ExamGrades.FirstOrDefault(x => x.StudentID == arg.StudentID);
                 eg.ExamGrades1 = arg.ExamGrades1;
                 eg.ExamGrades2 = arg.ExamGrades2;
                 Context.Connection.SaveChanges();

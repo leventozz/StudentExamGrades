@@ -25,7 +25,7 @@ namespace ExamGradesApplication.DB
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<ExamGradeVM> ExamGrades { get; set; }
+        public virtual DbSet<ExamGrade> ExamGrades { get; set; }
         public virtual DbSet<Lesson> Lessons { get; set; }
         public virtual DbSet<Student> Students { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }

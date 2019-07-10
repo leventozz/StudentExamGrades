@@ -11,6 +11,6 @@ namespace ExamGradesApplication.Worker
     {
         ExamGradesVM GetExamsByID(int id);
         void SendExamGrades(ExamGradesVM arg);
-        IEnumerable<ExamGradesVM> SendGradesList(LoginVM arg);
+        IEnumerable<ExamGradesVM> SendGradesList(PersonLoginVM arg);
     }
 }

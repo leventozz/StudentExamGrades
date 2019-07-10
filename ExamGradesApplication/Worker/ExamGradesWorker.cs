@@ -38,7 +38,7 @@ namespace ExamGradesApplication.Worker
 
         public void SendExamGrades(ExamGradesVM arg)
         {
-            ExamGradeVM eg = new ExamGradeVM();
+            ExamGrade eg = new ExamGrade();
             eg.StudentID = arg.StudentID;
             eg.LessonID = arg.LessonID;
             eg.ExamGrades1 = arg.ExamGrades1;
@@ -47,7 +47,7 @@ namespace ExamGradesApplication.Worker
         }
         
 
-        public IEnumerable<ExamGradesVM> SendGradesList(LoginVM arg)
+        public IEnumerable<ExamGradesVM> SendGradesList(PersonLoginVM arg)
         {
             List<ExamGradesVM> eList = new List<ExamGradesVM>();
             var temp =_studentService.GetStudentByIdentification(arg.IdentificationNumber);

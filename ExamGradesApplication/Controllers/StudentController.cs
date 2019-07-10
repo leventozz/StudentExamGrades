@@ -16,9 +16,10 @@ namespace ExamGradesApplication.Controllers
             _gradesService = gradeService;
         }
         // GET: Student
-        public ActionResult Index(LoginVM arg)
+        public ActionResult Index()
         {
-            return View(_gradesService.SendGradesList(arg));
+            var temp = (PersonLoginVM)Session["Person"];
+            return View(_gradesService.SendGradesList(temp));
         }
     }
 }
