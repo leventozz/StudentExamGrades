@@ -21,45 +21,85 @@ namespace ExamGradesApplication.Worker
         }
         public ExamGradesVM GetExamsByID(int id, int lessonID)
         {
-            var s = Context.Connection.ExamGrades.Include(y => y.Student).Include(z => z.Lesson).Where(x => x.StudentID == id).FirstOrDefault(y => y.LessonID == lessonID);
-            return new ExamGradesVM()
+            try
             {
-                StudentID = s.StudentID,
-                StudentName = s.Student.StudentName,
-                StudentLastName=s.Student.StudentLastName,
-                LessonID = s.LessonID,
-                LessonName=s.Lesson.LessonName,
-                ExamGrades1=s.ExamGrades1,
-                ExamGrades2=s.ExamGrades2
-            };
+                if (Context.Connection.ExamGrades.Include(y => y.Student).Include(z => z.Lesson).Where(x => x.StudentID == id).FirstOrDefault(y => y.LessonID == lessonID) != null)
+                {
+                    var s = Context.Connection.ExamGrades.Include(y => y.Student).Include(z => z.Lesson).Where(x => x.StudentID == id).FirstOrDefault(y => y.LessonID == lessonID);
+                    return new ExamGradesVM()
+                    {
+                        StudentID = s.StudentID,
+                        StudentName = s.Student.StudentName,
+                        StudentLastName = s.Student.StudentLastName,
+                        LessonID = s.LessonID,
+                        LessonName = s.Lesson.LessonName,
+                        ExamGrades1 = s.ExamGrades1,
+                        ExamGrades2 = s.ExamGrades2
+                    };
+                }
+                else
+                    throw new Exception("Öğrenci bu dersi almıyor");
+            }
+            catch (Exception)
+            {
+                throw new Exception("Öğrenci bu dersi almıyor");
+            }
+            
         }
 
         public void SendExamGrades(ExamGradesVM arg)
         {
-            ExamGrade eg = new ExamGrade();
-            eg.StudentID = arg.StudentID;
-            eg.LessonID = arg.LessonID;
-            eg.ExamGrades1 = arg.ExamGrades1;
-            eg.ExamGrades2 = arg.ExamGrades2;
-            _gradeService.SaveGrades(eg);
+            try
+            {
+                if (arg != null)
+                {
+                    ExamGrade eg = new ExamGrade();
+                    eg.StudentID = arg.StudentID;
+                    eg.LessonID = arg.LessonID;
+                    eg.ExamGrades1 = arg.ExamGrades1;
+                    eg.ExamGrades2 = arg.ExamGrades2;
+                    _gradeService.SaveGrades(eg);
+                }
+                else
+                    throw new Exception("Sınav kayıtları alınamadı");
+            }
+            catch (Exception)
+            {
+                throw new Exception("Sınav kayıtları alınamadı");
+            }
+            
         }
         
 
         public IEnumerable<ExamGradesVM> SendGradesList(PersonLoginVM arg)
         {
-            List<ExamGradesVM> eList = new List<ExamGradesVM>();
-            var temp =_studentService.GetStudentByIdentification(arg.IdentificationNumber);
-            var temp2 =_gradeService.GetGradeListByID(temp.StudentID);
-            foreach (var item in temp2)
+            try
             {
-                eList.Add(new ExamGradesVM
+                if (arg != null)
                 {
-                    LessonName = item.Lesson.LessonName,
-                    ExamGrades1 = item.ExamGrades1,
-                    ExamGrades2 = item.ExamGrades2
-                });
+                    List<ExamGradesVM> eList = new List<ExamGradesVM>();
+                    var temp = _studentService.GetStudentByIdentification(arg.IdentificationNumber);
+                    var temp2 = _gradeService.GetGradeListByID(temp.StudentID);
+                    foreach (var item in temp2)
+                    {
+                        eList.Add(new ExamGradesVM
+                        {
+                            LessonName = item.Lesson.LessonName,
+                            ExamGrades1 = item.ExamGrades1,
+                            ExamGrades2 = item.ExamGrades2
+                        });
+                    }
+                    return eList;
+                }
+                else
+                    throw new Exception("Sınav kayıtları alınamadı");
+                
             }
-            return eList;
+            catch (Exception)
+            {
+                throw new Exception("Sınav kayıtları alınamadı");
+            }
+            
         }
     }
 }

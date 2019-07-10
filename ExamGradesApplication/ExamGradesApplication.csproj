@@ -241,8 +241,10 @@
     <Compile Include="Worker\IExamGradesWorker.cs" />
     <Compile Include="Worker\ILoginWorker.cs" />
     <Compile Include="Worker\IStudentListWorker.cs" />
+    <Compile Include="Worker\IStudentWorker.cs" />
     <Compile Include="Worker\LoginWorker.cs" />
     <Compile Include="Worker\StudentListWorker.cs" />
+    <Compile Include="Worker\StudentWorker.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />

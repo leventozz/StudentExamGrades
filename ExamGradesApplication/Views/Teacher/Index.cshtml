@@ -5,8 +5,10 @@
 }
 
 @{ var t = Session["Person"] as PersonLoginVM;} <p class="text-right mr-5">Hoş geldiniz: @t.Name @t.LastName</p>
+
 <div class="container">
     <div class="row mt-5">
+        <a href="/Teacher/CreateStudent" class="btn btn-info mb-1">Yeni Öğrenci Ekle</a>
         <table class="table">
             <thead>
                 <tr>

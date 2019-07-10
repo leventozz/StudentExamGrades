@@ -11,8 +11,21 @@ namespace ExamGradesApplication.Repository
     {
         public Lesson AddLesson(Lesson arg)
         {
-            Context.Connection.Lessons.Add(arg);
-            return arg;
+            try
+            {
+                if (arg!=null)
+                {
+                    Context.Connection.Lessons.Add(arg);
+                    return arg;
+                }
+                else
+                    throw new Exception("Nesne gönderilirken hata oluştu");
+            }
+            catch (Exception)
+            {
+                throw new Exception("Nesne gönderilirken hata oluştu");
+            }
+            
         }
 
         public bool DeleteLesson(int id)
@@ -27,7 +40,22 @@ namespace ExamGradesApplication.Repository
 
         public Lesson SelectById(int id)
         {
-            return Context.Connection.Lessons.FirstOrDefault(x => x.LessonID == id);
+            try
+            {
+                if (id != null)
+                {
+                    return Context.Connection.Lessons.FirstOrDefault(x => x.LessonID == id);
+                }
+                else
+                    throw new Exception("ID hatalı");
+
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception("ID hatalı");
+            }
+            
         }
 
         public bool UpdateLesson(int id)

@@ -33,6 +33,10 @@ namespace ExamGradesApplication.Repository
         {
             try
             {
+                if (id==null)
+                {
+                    throw new Exception("ID hatalı");
+                }
                 Student s = Context.Connection.Students.FirstOrDefault(x => x.StudentID == id);
                 Context.Connection.ExamGrades.RemoveRange(Context.Connection.ExamGrades.Where(x => x.StudentID == s.StudentID));
                 Context.Connection.Students.Remove(s);
@@ -65,14 +69,20 @@ namespace ExamGradesApplication.Repository
         {
             try
             {
-                Student s = Context.Connection.Students.FirstOrDefault(x => x.StudentID == arg.StudentID);
-                s.StudentName = arg.StudentName;
-                s.StudentID = arg.StudentID;
-                s.StudentLastName = arg.StudentLastName;
-                s.StudentIdentificationNumber = arg.StudentIdentificationNumber;
-                s.StudentPassword = arg.StudentPassword;
-                Context.Connection.SaveChanges();
-                return "";
+                if (arg != null)
+                {
+                    Student s = Context.Connection.Students.FirstOrDefault(x => x.StudentID == arg.StudentID);
+                    s.StudentName = arg.StudentName;
+                    s.StudentID = arg.StudentID;
+                    s.StudentLastName = arg.StudentLastName;
+                    s.StudentIdentificationNumber = arg.StudentIdentificationNumber;
+                    s.StudentPassword = arg.StudentPassword;
+                    Context.Connection.SaveChanges();
+                    return "";
+                }
+                else
+                    throw new Exception("Nesne hatalı");
+                
             }
             catch (Exception ex)
             {

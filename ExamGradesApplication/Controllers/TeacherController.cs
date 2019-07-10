@@ -13,23 +13,31 @@ namespace ExamGradesApplication.Controllers
     public class TeacherController : Controller
     {
         IStudent _studentService;
-        IStudentListWorker _workerService;
+        IStudentListWorker _listWorkerService;
         IExamGradesWorker _gradesService;
+        IStudentWorker _studentWorkerService;
         
-        public TeacherController(IStudent studentService, IStudentListWorker workerService,IExamGradesWorker gradesService)
+        public TeacherController(IStudent studentService, IStudentListWorker workerService,IExamGradesWorker gradesService, IStudentWorker studentWorker)
         {
             _studentService = studentService;
-            _workerService = workerService;
+            _listWorkerService = workerService;
             _gradesService = gradesService;
+            _studentWorkerService = studentWorker;
         }
         // GET: Student
         public ActionResult Index()
         {
-            return View(_workerService.GetStudentList());
+            return View(_listWorkerService.GetStudentList());
         }
         public ActionResult CreateStudent()
         {
             return View();
+        }
+        [HttpPost]
+        public ActionResult CreateStudent(StudentVM arg)
+        {
+            _studentWorkerService.AddStudent(arg);
+            return RedirectToAction("Index");
         }
 
         public ActionResult AddGrades(int id)
