@@ -19,11 +19,9 @@ namespace ExamGradesApplication.Worker
             _gradeService = gradeService;
             _studentService = studentService;
         }
-        public ExamGradesVM GetExamsByID(int id)
+        public ExamGradesVM GetExamsByID(int id, int lessonID)
         {
-
-            var s = Context.Connection.ExamGrades.Include(y => y.Student).Include(z => z.Lesson).FirstOrDefault(x => x.StudentID == id);
-;
+            var s = Context.Connection.ExamGrades.Include(y => y.Student).Include(z => z.Lesson).Where(x => x.StudentID == id).FirstOrDefault(y => y.LessonID == lessonID);
             return new ExamGradesVM()
             {
                 StudentID = s.StudentID,

@@ -34,7 +34,9 @@ namespace ExamGradesApplication.Controllers
 
         public ActionResult AddGrades(int id)
         {
-            return View(_gradesService.GetExamsByID(id));
+            var temp = (PersonLoginVM)Session["Person"];
+            int lessonID = (int)temp.LessonID;
+            return View(_gradesService.GetExamsByID(id, lessonID));
         }
         [HttpPost]
         public ActionResult AddGrades(ExamGradesVM arg)

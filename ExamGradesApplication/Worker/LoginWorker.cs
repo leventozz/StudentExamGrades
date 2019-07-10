@@ -63,6 +63,7 @@ namespace ExamGradesApplication.Worker
                     Name = t.TeacherName,
                     LastName = t.TeacherLastName,
                     IdentificationNumber=t.TeacherIdentificationNumber,
+                    LessonID=t.LessonID,
                     ID = t.TeacherID,
                     Job = "Öğretmen"
                 };

@@ -9,7 +9,7 @@ namespace ExamGradesApplication.Worker
 {
     public interface IExamGradesWorker
     {
-        ExamGradesVM GetExamsByID(int id);
+        ExamGradesVM GetExamsByID(int id, int lessonID);
         void SendExamGrades(ExamGradesVM arg);
         IEnumerable<ExamGradesVM> SendGradesList(PersonLoginVM arg);
     }

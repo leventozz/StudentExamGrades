@@ -9,6 +9,6 @@ namespace ExamGradesApplication.Models
     {
         public string IdentificationNumber { get; set; }
         public int Password { get; set; }
-        public int LessonID { get; set; }
+        public Nullable<int> LessonID { get; set; }
     }
 }
