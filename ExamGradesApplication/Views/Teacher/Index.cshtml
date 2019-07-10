@@ -3,12 +3,16 @@
 @{
     ViewBag.Title = "Index";
 }
+@if (ViewBag.Error != null)
+{
+    <h3 style="color:red">@ViewBag.Error</h3>
+}
 
 @{ var t = Session["Person"] as PersonLoginVM;} <p class="text-right mr-5">Hoş geldiniz: @t.Name @t.LastName</p>
 
 <div class="container">
     <div class="row mt-5">
-        <a href="/Teacher/CreateStudent" class="btn btn-info btn-block mb-1">Yeni Öğrenci Ekle</a>
+        <a href="/Teacher/CreateStudent" class="btn btn-info mb-1">Yeni Öğrenci Ekle</a>
         <table class="table">
             <thead>
                 <tr>
@@ -33,5 +37,6 @@
                 }
             </tbody>
         </table>
+
     </div>
 </div>

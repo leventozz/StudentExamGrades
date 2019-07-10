@@ -44,7 +44,16 @@ namespace ExamGradesApplication.Controllers
         {
             var temp = (PersonLoginVM)Session["Person"];
             int lessonID = (int)temp.LessonID;
-            return View(_gradesService.GetExamsByID(id, lessonID));
+            if ((_gradesService.GetExamsByID(id, lessonID)!=null))
+            {
+                return View(_gradesService.GetExamsByID(id, lessonID));
+            }
+            else
+            {
+                ViewBag.Error = "Öğrenci bu dersi almamaktadır.";
+                return RedirectToAction("Index","Teacher");
+            }
+            
         }
         [HttpPost]
         public ActionResult AddGrades(ExamGradesVM arg)

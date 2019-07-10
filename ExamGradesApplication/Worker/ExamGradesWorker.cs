@@ -26,6 +26,7 @@ namespace ExamGradesApplication.Worker
                 if (Context.Connection.ExamGrades.Include(y => y.Student).Include(z => z.Lesson).Where(x => x.StudentID == id).FirstOrDefault(y => y.LessonID == lessonID) != null)
                 {
                     var s = Context.Connection.ExamGrades.Include(y => y.Student).Include(z => z.Lesson).Where(x => x.StudentID == id).FirstOrDefault(y => y.LessonID == lessonID);
+                    
                     return new ExamGradesVM()
                     {
                         StudentID = s.StudentID,
@@ -42,7 +43,7 @@ namespace ExamGradesApplication.Worker
             }
             catch (Exception)
             {
-                throw new Exception("Öğrenci bu dersi almıyor");
+                return null;
             }
             
         }
@@ -97,7 +98,7 @@ namespace ExamGradesApplication.Worker
             }
             catch (Exception)
             {
-                throw new Exception("Sınav kayıtları alınamadı");
+                return null;
             }
             
         }
