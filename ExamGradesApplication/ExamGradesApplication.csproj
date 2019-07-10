@@ -221,13 +221,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\ExamGradesVM.cs" />
-    <Compile Include="Models\GradeListVM.cs" />
-    <Compile Include="Models\LoginVM.cs" />
-    <Compile Include="Models\PersonLoginVM.cs" />
-    <Compile Include="Models\StudentGradesVM.cs" />
-    <Compile Include="Models\StudentVM.cs" />
-    <Compile Include="Models\StudentListVM.cs" />
+    <Compile Include="ViewModels\ExamGradesVM.cs" />
+    <Compile Include="ViewModels\GradeListVM.cs" />
+    <Compile Include="ViewModels\LoginVM.cs" />
+    <Compile Include="ViewModels\PersonLoginVM.cs" />
+    <Compile Include="ViewModels\StudentGradesVM.cs" />
+    <Compile Include="ViewModels\StudentVM.cs" />
+    <Compile Include="ViewModels\StudentListVM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\GradesRepo.cs" />
     <Compile Include="Repository\IGrades.cs" />

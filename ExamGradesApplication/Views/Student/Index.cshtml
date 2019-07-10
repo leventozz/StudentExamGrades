@@ -4,14 +4,14 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_AccountLayout.cshtml";
 }
-@*@{ var t = Session["Person"] as PersonLoginVM}*@
+@{ var t = Session["Person"] as PersonLoginVM;}
 
-<h2>Ders Notlarınız</h2> @*<p class="text-right">@t.Name @t.LastName</p>*@
+<h2 class="ml-5 mt-3">Ders Notlarınız</h2><p class="text-right mr-5">Hoş geldiniz: @t.Name @t.LastName</p>
 
 <div class="container">
     <div class="row mt-5">
-        <table class="table">
-            <thead>
+        <table class="table table-hover">
+            <thead class="thead-dark">
                 <tr>
                     <th scope="col">Ders Adı</th>
                     <th scope="col">Ara Sınav</th>

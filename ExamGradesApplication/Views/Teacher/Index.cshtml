@@ -1,8 +1,10 @@
 ﻿@model IEnumerable<ExamGradesApplication.Models.StudentListVM>
+@using ExamGradesApplication.Models
 @{
     ViewBag.Title = "Index";
 }
 
+@{ var t = Session["Person"] as PersonLoginVM;} <p class="text-right mr-5">Hoş geldiniz: @t.Name @t.LastName</p>
 <div class="container">
     <div class="row mt-5">
         <table class="table">
@@ -17,15 +19,15 @@
             <tbody>
                 @foreach (var item in Model)
                 {
-                <tr>
-                    <td>@item.IdentificationNumber</td>
-                    <td>@item.StudentName</td>
-                    <td>@item.StudentLastName</td>
-                    <td>
-                        <a class="btn btn-primary btn-sm" href="/Teacher/AddGrades/@item.StudentID">Not Ekle</a>
-                        <a class="btn btn-danger btn-sm" href="/Student/DeleteStudent/@item.StudentID">Öğrenci Sil</a>
-                    </td>
-                </tr>
+                    <tr>
+                        <td>@item.IdentificationNumber</td>
+                        <td>@item.StudentName</td>
+                        <td>@item.StudentLastName</td>
+                        <td>
+                            <a class="btn btn-primary btn-sm" href="/Teacher/AddGrades/@item.StudentID">Not Ekle</a>
+                            <a class="btn btn-danger btn-sm" href="/Student/DeleteStudent/@item.StudentID">Öğrenci Sil</a>
+                        </td>
+                    </tr>
                 }
             </tbody>
         </table>
