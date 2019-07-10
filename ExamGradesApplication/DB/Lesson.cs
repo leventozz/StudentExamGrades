@@ -17,7 +17,7 @@ namespace ExamGradesApplication.DB
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Lesson()
         {
-            this.ExamGrades = new HashSet<ExamGrade>();
+            this.ExamGrades = new HashSet<ExamGradeVM>();
             this.Teachers = new HashSet<Teacher>();
         }
     
@@ -25,7 +25,7 @@ namespace ExamGradesApplication.DB
         public string LessonName { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ExamGrade> ExamGrades { get; set; }
+        public virtual ICollection<ExamGradeVM> ExamGrades { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Teacher> Teachers { get; set; }
     }

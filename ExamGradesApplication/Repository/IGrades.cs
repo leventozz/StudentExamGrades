@@ -9,6 +9,7 @@ namespace ExamGradesApplication.Repository
 {
     public interface IGrades
     {
-        string SaveGrades(ExamGrade arg);
+        string SaveGrades(ExamGradeVM arg);
+        IEnumerable<ExamGradeVM> GetGradeListByID(int id);
     }
 }

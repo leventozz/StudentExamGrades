@@ -6,14 +6,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Data.Entity;
+using ExamGradesApplication.Repository;
 
 namespace ExamGradesApplication.Worker
 {
     public class ExamGradesWorker : IExamGradesWorker
     {
+        IGrades _gradeService;
+        IStudent _studentService;
+        public ExamGradesWorker(IGrades gradeService, IStudent studentService)
+        {
+            _gradeService = gradeService;
+            _studentService = studentService;
+        }
         public ExamGradesVM GetExamsByID(int id)
         {
-            var s = Context.Connection.ExamGrades.Include(y => y.Student).Include(z=>z.Lesson).FirstOrDefault(x => x.StudentID == id);
+
+            var s = Context.Connection.ExamGrades.Include(y => y.Student).Include(z => z.Lesson).FirstOrDefault(x => x.StudentID == id);
 ;
             return new ExamGradesVM()
             {
@@ -27,14 +36,32 @@ namespace ExamGradesApplication.Worker
             };
         }
 
-        public ExamGrade Mapper(ExamGradesVM arg)
+        public void SendExamGrades(ExamGradesVM arg)
         {
-            ExamGrade eg = new ExamGrade();
+            ExamGradeVM eg = new ExamGradeVM();
             eg.StudentID = arg.StudentID;
             eg.LessonID = arg.LessonID;
             eg.ExamGrades1 = arg.ExamGrades1;
             eg.ExamGrades2 = arg.ExamGrades2;
-            return eg;
+            _gradeService.SaveGrades(eg);
+        }
+        
+
+        public IEnumerable<ExamGradesVM> SendGradesList(LoginVM arg)
+        {
+            List<ExamGradesVM> eList = new List<ExamGradesVM>();
+            var temp =_studentService.GetStudentByIdentification(arg.IdentificationNumber);
+            var temp2 =_gradeService.GetGradeListByID(temp.StudentID);
+            foreach (var item in temp2)
+            {
+                eList.Add(new ExamGradesVM
+                {
+                    LessonName = item.Lesson.LessonName,
+                    ExamGrades1 = item.ExamGrades1,
+                    ExamGrades2 = item.ExamGrades2
+                });
+            }
+            return eList;
         }
     }
 }

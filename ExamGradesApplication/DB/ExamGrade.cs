@@ -12,7 +12,7 @@ namespace ExamGradesApplication.DB
     using System;
     using System.Collections.Generic;
     
-    public partial class ExamGrade
+    public partial class ExamGradeVM
     {
         public int StudentID { get; set; }
         public int LessonID { get; set; }

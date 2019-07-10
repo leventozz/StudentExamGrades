@@ -14,6 +14,8 @@
         <div class="col-md-12">
             @using (Html.BeginForm())
             {
+                @Html.HiddenFor(modelItem => Model.StudentID)
+                @Html.HiddenFor(modelItem => Model.LessonID)
                 <div class="form-group">
                     <b><label class="te"> Öğrenci Adı: </label></b>
                     @Html.DisplayFor(modelItem => Model.StudentName, new { @class = "form-control" })

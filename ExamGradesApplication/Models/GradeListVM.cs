@@ -5,10 +5,11 @@ using System.Web;
 
 namespace ExamGradesApplication.Models
 {
-    public class LoginVM
+    public class GradeListVM
     {
-        public string IdentificationNumber { get; set; }
-        public int Password { get; set; }
         public int LessonID { get; set; }
+        public string LessonName { get; set; }
+        public int ExamGrade1 { get; set; }
+        public int ExamGrade2 { get; set; }
     }
 }

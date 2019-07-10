@@ -15,6 +15,7 @@
                 <div class="card-body">
                     @using (Html.BeginForm("Login","Account", new {id=1 }))
                     {
+                        @Html.HiddenFor(modelItem=> Model.LessonID)
                         <div class="form-group">
                             @Html.TextBoxFor(modelItem => Model.IdentificationNumber, new { @class = "form-control", placeholder = "TC Kimlik No", required = "required" })
                         </div>

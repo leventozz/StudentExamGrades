@@ -186,6 +186,7 @@
     <Compile Include="App_Start\Context.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\StudentController.cs" />
     <Compile Include="Controllers\TeacherController.cs" />
     <Compile Include="DB\ExamGrade.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -221,6 +222,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\ExamGradesVM.cs" />
+    <Compile Include="Models\GradeListVM.cs" />
     <Compile Include="Models\LoginVM.cs" />
     <Compile Include="Models\PersonLoginVM.cs" />
     <Compile Include="Models\StudentGradesVM.cs" />
@@ -263,6 +265,7 @@
     <Content Include="Views\Teacher\AddGrades.cshtml" />
     <Content Include="Views\Shared\_AccountLayout.cshtml" />
     <Content Include="Views\Account\Index.cshtml" />
+    <Content Include="Views\Student\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -1,0 +1,32 @@
+﻿@model IEnumerable<ExamGradesApplication.Models.ExamGradesVM>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AccountLayout.cshtml";
+}
+
+<h2>Ders Notlarınız</h2>
+
+<div class="container">
+    <div class="row mt-5">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Ders Adı</th>
+                    <th scope="col">Ara Sınav</th>
+                    <th scope="col">Final</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.LessonName</td>
+                        <td>@item.ExamGrades1</td>
+                        <td>@item.ExamGrades2</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
