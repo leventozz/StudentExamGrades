@@ -57,28 +57,55 @@ namespace ExamGradesApplication.Worker
         {
             if (id == 1)
             {
-                Teacher t = Context.Connection.Teachers.FirstOrDefault(x => x.TeacherIdentificationNumber == iden);
-                return new PersonLoginVM()
+                try
                 {
-                    Name = t.TeacherName,
-                    LastName = t.TeacherLastName,
-                    IdentificationNumber=t.TeacherIdentificationNumber,
-                    LessonID=t.LessonID,
-                    ID = t.TeacherID,
-                    Job = "Öğretmen"
-                };
+                    Teacher t = Context.Connection.Teachers.FirstOrDefault(x => x.TeacherIdentificationNumber == iden);
+                    if (t != null)
+                    {
+                        return new PersonLoginVM()
+                        {
+                            Name = t.TeacherName,
+                            LastName = t.TeacherLastName,
+                            IdentificationNumber = t.TeacherIdentificationNumber,
+                            LessonID = t.LessonID,
+                            ID = t.TeacherID,
+                            Job = "Öğretmen"
+                        };
+                    }
+                    else
+                        throw new Exception("Böyle bir öğretmen kaydı bulunamadı");
+                }
+                catch (Exception)
+                {
+                    throw new Exception("Böyle bir öğretmen kaydı bulunamadı");
+                }
+                
+                
             }
             else if (id == 2)
             {
                 Student s = Context.Connection.Students.FirstOrDefault(x => x.StudentIdentificationNumber == iden);
-                return new PersonLoginVM()
+                try
                 {
-                    Name = s.StudentName,
-                    LastName = s.StudentLastName,
-                    IdentificationNumber=s.StudentIdentificationNumber,
-                    ID = s.StudentID,
-                    Job = "Öğrenci"
-                };
+                    if (s!=null)
+                    {
+                        return new PersonLoginVM()
+                        {
+                            Name = s.StudentName,
+                            LastName = s.StudentLastName,
+                            IdentificationNumber = s.StudentIdentificationNumber,
+                            ID = s.StudentID,
+                            Job = "Öğrenci"
+                        };
+                    }
+                    else
+                        throw new Exception("Böyle bir öğrenci kaydı bulunamadı");
+                }
+                catch (Exception)
+                {
+                    throw new Exception("Böyle bir öğrenci kaydı bulunamadı");
+                }
+                
             }
             else
                 return null;
