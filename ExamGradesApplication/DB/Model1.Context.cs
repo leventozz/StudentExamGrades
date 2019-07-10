@@ -13,10 +13,10 @@ namespace ExamGradesApplication.DB
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class StudentInformationSystemDBEntities1 : DbContext
+    public partial class StudentInformationSystemDBEntities : DbContext
     {
-        public StudentInformationSystemDBEntities1()
-            : base("name=StudentInformationSystemDBEntities1")
+        public StudentInformationSystemDBEntities()
+            : base("name=StudentInformationSystemDBEntities")
         {
         }
     

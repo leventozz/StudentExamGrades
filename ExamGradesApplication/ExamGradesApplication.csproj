@@ -131,7 +131,6 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="DB\Model1.edmx.sql" />
     <Content Include="DB\Model1.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>
@@ -160,6 +159,13 @@
     <Content Include="Content\bootstrap-reboot.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
+    <EntityDeploy Include="DB\Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="DB\Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -214,18 +220,23 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\ExamGradesVM.cs" />
     <Compile Include="Models\LoginVM.cs" />
     <Compile Include="Models\PersonLoginVM.cs" />
     <Compile Include="Models\StudentGradesVM.cs" />
     <Compile Include="Models\StudentVM.cs" />
     <Compile Include="Models\StudentListVM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\GradesRepo.cs" />
+    <Compile Include="Repository\IGrades.cs" />
     <Compile Include="Repository\ILesson.cs" />
     <Compile Include="Repository\IStudent.cs" />
     <Compile Include="Repository\ITeacher.cs" />
     <Compile Include="Repository\LessonRepo.cs" />
     <Compile Include="Repository\StudentRepo.cs" />
     <Compile Include="Repository\TeacherRepo.cs" />
+    <Compile Include="Worker\ExamGradesWorker.cs" />
+    <Compile Include="Worker\IExamGradesWorker.cs" />
     <Compile Include="Worker\ILoginWorker.cs" />
     <Compile Include="Worker\IStudentListWorker.cs" />
     <Compile Include="Worker\LoginWorker.cs" />
@@ -233,13 +244,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
-    <EntityDeploy Include="DB\Model1.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="DB\Model1.edmx.diagram">
-      <DependentUpon>Model1.edmx</DependentUpon>
-    </Content>
     <None Include="packages.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />

@@ -16,8 +16,6 @@ namespace ExamGradesApplication.DB
     {
         public int StudentID { get; set; }
         public int LessonID { get; set; }
-        public Nullable<int> ExamGrade1 { get; set; }
-        public Nullable<int> ExamGrades { get; set; }
         public Nullable<int> ExamGrades1 { get; set; }
         public Nullable<int> ExamGrades2 { get; set; }
     

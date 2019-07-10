@@ -14,10 +14,13 @@ namespace ExamGradesApplication.Controllers
     {
         IStudent _studentService;
         IStudentListWorker _workerService;
-        public TeacherController(IStudent studentService, IStudentListWorker workerService)
+        IExamGradesWorker _gradesService;
+        IGrades _gradesSaveService;
+        public TeacherController(IStudent studentService, IStudentListWorker workerService,IExamGradesWorker gradesService)
         {
             _studentService = studentService;
             _workerService = workerService;
+            _gradesService = gradesService;
         }
         // GET: Student
         public ActionResult Index()
@@ -28,15 +31,15 @@ namespace ExamGradesApplication.Controllers
         {
             return View();
         }
-        //[HttpPost]
-        //public ActionResult CreateStudent(StudentVM arg)
-        //{
-        //    _studentService.AddStudent(arg);
-        //    return RedirectToAction("Index");
-        //}
-        //public ActionResult AddGrades(int id)
-        //{
-        //    return View(_studentService.SelectById(id));
-        //}
+
+        public ActionResult AddGrades(int id)
+        {
+            return View(_gradesService.GetExamsByID(id));
+        }
+        [HttpPost]
+        public ActionResult AddGrades(ExamGradesVM arg)
+        {
+            _gradesService.Mapper(arg);
+        }
     }
 }

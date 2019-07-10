@@ -4,12 +4,12 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="cf92ca96886d467dbc73a0d0a3363de9" Name="Diagram1">
-        <EntityTypeShape EntityType="StudentInformationSystemDBModel.ExamGrade" Width="1.5" PointX="3" PointY="2.875" IsExpanded="true" />
+      <Diagram DiagramId="32c90167bce0413b88f477917f6f1486" Name="Diagram1">
+        <EntityTypeShape EntityType="StudentInformationSystemDBModel.ExamGrade" Width="1.5" PointX="3" PointY="2.75" IsExpanded="true" />
         <EntityTypeShape EntityType="StudentInformationSystemDBModel.Lesson" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
         <EntityTypeShape EntityType="StudentInformationSystemDBModel.Student" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="StudentInformationSystemDBModel.sysdiagram" Width="1.5" PointX="5.75" PointY="2" IsExpanded="true" />
-        <EntityTypeShape EntityType="StudentInformationSystemDBModel.Teacher" Width="1.5" PointX="3" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudentInformationSystemDBModel.sysdiagram" Width="1.5" PointX="5.75" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudentInformationSystemDBModel.Teacher" Width="1.5" PointX="3" PointY="6.625" IsExpanded="true" />
         <AssociationConnector Association="StudentInformationSystemDBModel.FK_ExamGrades_Lessons1" ManuallyRouted="false" />
         <AssociationConnector Association="StudentInformationSystemDBModel.FK_ExamGrades_Students1" ManuallyRouted="false" />
         <AssociationConnector Association="StudentInformationSystemDBModel.FK_Teachers_Lessons2" ManuallyRouted="false" />

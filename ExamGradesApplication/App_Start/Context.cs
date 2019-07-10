@@ -8,15 +8,15 @@ namespace ExamGradesApplication.App_Start
 {
     public class Context
     {
-        private static StudentInformationSystemDBEntities1 connection;
+        private static StudentInformationSystemDBEntities connection;
 
-        public static StudentInformationSystemDBEntities1 Connection
+        public static StudentInformationSystemDBEntities Connection
         {
             get
             {
                 if (connection == null)
                 {
-                    connection = new StudentInformationSystemDBEntities1();
+                    connection = new StudentInformationSystemDBEntities();
                 }
                 return connection;
             }
