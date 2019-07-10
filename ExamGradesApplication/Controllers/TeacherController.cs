@@ -16,11 +16,12 @@ namespace ExamGradesApplication.Controllers
         IStudentListWorker _workerService;
         IExamGradesWorker _gradesService;
         IGrades _gradesSaveService;
-        public TeacherController(IStudent studentService, IStudentListWorker workerService,IExamGradesWorker gradesService)
+        public TeacherController(IStudent studentService, IStudentListWorker workerService,IExamGradesWorker gradesService, IGrades gradesSaveService)
         {
             _studentService = studentService;
             _workerService = workerService;
             _gradesService = gradesService;
+            _gradesSaveService = gradesSaveService;
         }
         // GET: Student
         public ActionResult Index()
@@ -39,7 +40,8 @@ namespace ExamGradesApplication.Controllers
         [HttpPost]
         public ActionResult AddGrades(ExamGradesVM arg)
         {
-            _gradesService.Mapper(arg);
+            _gradesSaveService.SaveGrades(_gradesService.Mapper(arg));
+            return RedirectToAction("Index");
         }
     }
 }
