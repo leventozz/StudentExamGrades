@@ -3,24 +3,24 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_AccountLayout.cshtml";
 }
-
+@Html.Raw(TempData["msg"])
 <div class="container mt-5">
     <div class="row mt-5">
-        
+
         <div class="col-md-6">
             <div class="card">
                 <div class="card-header">
                     <b> Öğretmen Girişi</b>
                 </div>
                 <div class="card-body">
-                    @using (Html.BeginForm("Login","Account", new {id=1 }))
+                    @using (Html.BeginForm("Login", "Account", new { id = 1 }))
                     {
                         @Html.HiddenFor(modelItem => Model.LessonID)
                         <div class="form-group">
                             @Html.TextBoxFor(modelItem => Model.IdentificationNumber, new { @class = "form-control", placeholder = "TC Kimlik No", required = "required" })
                         </div>
                         <div class="form-group">
-                            @Html.TextBoxFor(modelItem => Model.Password, new { @class = "form-control", placeholder = "Şifre", required = "required", type="password" })
+                            @Html.TextBoxFor(modelItem => Model.Password, new { @class = "form-control", placeholder = "Şifre", required = "required", type = "password" })
                         </div>
                         <div class="form-group">
                             <div class="row">
@@ -31,9 +31,9 @@
                         </div>
                     }
                 </div>
-                @if (ViewBag.ErrorMessage!= null)
+                @if (ViewBag.ErrorMessage != null)
                 {
-                <div class="card-footer"><p> @ViewBag.ErrorMessage</p> </div>
+                    <div class="card-footer"><p> @ViewBag.ErrorMessage</p> </div>
                 }
             </div>
         </div>

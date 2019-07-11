@@ -38,8 +38,8 @@ namespace ExamGradesApplication.Controllers
                     return RedirectToAction("Index", "Student");
                 }
             }
-            ViewBag.ErrorMessage = "Giriş Başarısız.";
-            return Redirect("/Account/Index");
+            TempData["msg"] = "<script>alert('Giriş Başarısız!');</script>";
+            return RedirectToAction("Index", "Account");
         }
     }
 }
