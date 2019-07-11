@@ -50,16 +50,29 @@ namespace ExamGradesApplication.Controllers
             }
             else
             {
-                TempData["msg"] = "<script>alert('Öğrenci bu dersi almamaktadır!');</script>";
+                TempData["msg"] = "<script>alert('Öğrenci sizin dersinizi almamaktadır!');</script>";
                 return RedirectToAction("Index","Teacher");
             }
-            
         }
         [HttpPost]
         public ActionResult AddGrades(ExamGradesVM arg)
         {
             _gradesService.SendExamGrades(arg);
             return RedirectToAction("Index");
+        }
+        public ActionResult DeleteStudent (int id)
+        {
+            try
+            {
+                _studentService.DeleteStudent(id);
+                TempData["msg"] = "<script>alert('Öğrenci silme işlemi başarılı!');</script>";
+                return RedirectToAction("Index", "Teacher");
+            }
+            catch (Exception)
+            {
+                TempData["msg"] = "<script>alert('Silme işlemi sırasında bir hata oluştu!');</script>";
+                return RedirectToAction("Index", "Teacher");
+            }
         }
     }
 }

@@ -45,7 +45,6 @@ namespace ExamGradesApplication.Repository
             }
             catch (Exception ex)
             {
-
                 return ex.Message;
             }
         }
