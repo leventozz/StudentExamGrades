@@ -3,10 +3,7 @@
 @{
     ViewBag.Title = "Index";
 }
-@if (ViewBag.Error != null)
-{
-    <h3 style="color:red">@ViewBag.Error</h3>
-}
+@Html.Raw(TempData["msg"])
 
 @{ var t = Session["Person"] as PersonLoginVM;} <p class="text-right mr-5">Hoş geldiniz: @t.Name @t.LastName</p>
 

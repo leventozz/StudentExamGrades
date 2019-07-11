@@ -50,7 +50,7 @@ namespace ExamGradesApplication.Controllers
             }
             else
             {
-                ViewBag.Error = "Öğrenci bu dersi almamaktadır.";
+                TempData["msg"] = "<script>alert('Öğrenci bu dersi almamaktadır!');</script>";
                 return RedirectToAction("Index","Teacher");
             }
             
