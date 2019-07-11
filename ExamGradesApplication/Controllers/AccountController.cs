@@ -29,7 +29,6 @@ namespace ExamGradesApplication.Controllers
                     Session.Add("Person", _loginService.LoginedPerson(arg.IdentificationNumber, (int)id));
                     return RedirectToAction("Index", "Teacher");
                 }
-
             }
             else if (id == 2)
             {
@@ -39,7 +38,7 @@ namespace ExamGradesApplication.Controllers
                     return RedirectToAction("Index", "Student");
                 }
             }
-            ViewBag.ErrorMessage = "Giriş Başarısız";
+            ViewBag.ErrorMessage = "Giriş Başarısız.";
             return Redirect("/Account/Index");
         }
     }
