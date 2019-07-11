@@ -11,5 +11,6 @@ namespace ExamGradesApplication.Models
         public string StudentLastName { get; set; }
         public string StudentIdentificationNumber { get; set; }
         public int StudentPassword { get; set; }
+        public List<DB.Lesson> TakenLessons { get; set; }
     }
 }
